@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 운세 확인</title>
+    <!-- 부트스트랩 CDN 추가 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- 사용자 정의 스타일시트 경로 수정 -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- 부트스트랩과 jQuery 스크립트 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- 폰트 링크-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        .header {
+            font-family: 'Freestand', Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-top: 20px !important;
+        }
+
+        .menu-title h1 {
+            font-family: 'Freestand', Arial, sans-serif;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .close-button {
+            font-family: 'Freestand', Arial, sans-serif;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+        }
+
+        .image-container {
+            font-family: 'Freestand', Arial, sans-serif;
+            position: relative;
+            margin: 10px;
+        }
+
+        .image-container img {
+            font-family: 'Freestand', Arial, sans-serif;
+            width: 100%;
+            height: auto;
+        }
+
+        .centered-text {
+            font-family: 'Freestand', Arial, sans-serif;
+            position: absolute !important;
+            top: 40% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            color: white !important;
+        }
+    </style>
+    {% load static %}
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="menu-title">
+                <h1>MBTI 오늘의 운세</h1>
+            </div>
+            <img src="{% static 'img/x.png' %}" alt="닫기" class="close-button" onclick="history.back()">
+        </div>
+    </div>
+<body>
+    <div class="image-container">
+        <img src="{% static 'img/fortuness.jpg' %}" alt="Fortune image" class="fortune-image">
+        <div class="centered-text">
+            <h5>{{ mbti_type }}의 오늘의 운세</h5>
+            <p>({{ current_date }})</p>
+        </div>
+    </div>
+            <div class="col-12">
+                <table class="table">
+                    <tbody>
+                        {% for zodiac, fortune in zodiac_fortunes.items %}
+                        <tr>
+                            <td>
+                                {% if zodiac == '닭' %}
+                                <img src="{% static 'img/chicken.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '소' %}
+                                <img src="{% static 'img/cow.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '개' %}
+                                <img src="{% static 'img/dog.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '용' %}
+                                <img src="{% static 'img/dragon.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '말' %}
+                                <img src="{% static 'img/horse.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '원숭이' %}
+                                <img src="{% static 'img/monkey.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '쥐' %}
+                                <img src="{% static 'img/mouse.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '돼지' %}
+                                <img src="{% static 'img/pig.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '토끼' %}
+                                <img src="{% static 'img/rabbit.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '양' %}
+                                <img src="{% static 'img/sheep.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '뱀' %}
+                                <img src="{% static 'img/snake.png' %}" alt="{{ zodiac }}">
+                                {% elif zodiac == '호랑이' %}
+                                <img src="{% static 'img/tiger.png' %}" alt="{{ zodiac }}">
+                                {% endif %}
+                            </td>
+                            <td>{{ fortune }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

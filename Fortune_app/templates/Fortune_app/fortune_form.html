@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 운세 확인</title>
+    <!-- 부트스트랩 CDN 추가 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- 사용자 정의 스타일시트 경로 수정 -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- 부트스트랩과 jQuery 스크립트 -->
+    <script src="https://code.jquery.com/jquery-4.4.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- 폰트 링크-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <style> 
+    .back-button {
+        display: flex; 
+        align-items: center;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .back-text {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+    
+    .menu-name {
+        margin-left: 10px;
+        font-size: 45px;
+    }
+
+    .intro_container {
+        width: 100% !important;
+        font-size: 50px !important;
+    }
+
+    .mbti-img {
+        margin: auto;
+        width: 100px;  /* 이미지 너비 설정 */
+        height: 100px;  /* 이미지 높이 설정 */
+        text-align: center;  /* 텍스트(이미지)를 중앙으로 정렬 */
+    }
+    
+    .mbti-img img {
+        width: auto;  /* 이미지 너비를 부모 요소에 맞춤 */
+        max-width: auto;  /* 최대 너비를 제한하여 이미지 크기를 동일하게 유지 */
+        height: auto;  /* 이미지 비율 유지 */
+        object-fit: cover;  /* 이미지가 부모 요소를 채우도록 설정 */
+    }
+    
+    .row {
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content; /* row의 너비를 내용에 맞게 조절합니다. */
+    }
+    .info_bg {
+        color: white;
+        background-color: black;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .info_font {
+        color: white;
+        font-size: 14px;
+        font-family: 'Freestand', Arial, sans-serif;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .info {
+        font-size: 16px;
+        font-family: 'Freestand', Arial, sans-serif;
+        font-weight: bold;
+    }
+    
+    
+    </style>
+    {% load static %}
+</head>
+
+<body>
+<!-- 실제 콘텐츠 출력 -->
+    <div class="container">
+        <div class="header" style="margin-top: 30px;">
+            <div class="menu-title">
+                <h4 style="text-align: center; font-family: Arial, sans-serif; font-size: 25px; color: black;">AI가 알려주는 MBTI 오늘의 운세</h4>
+            </div>
+
+    <div class="centered-text">
+        <!-- 인트로 이미지 -->
+        <img src="{% static 'img/MBTI.jpg' %}" alt="MBTI" class="img-fluid my-3" style="width: 100% height: auto;">
+        <h4 style="text-align: center; font-family: Arial, sans-serif; font-size: 20px; color: orange;" "margin-top: 15px;">MBTI 유형을 선택하세요.</h4>
+    </div>
+
+    <div class="row">
+        <!-- ISTJ -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'istj_detail' %}?mbti=ISTJ">
+                <img src="{% static 'img/ISTJ.png' %}" alt="ISTJ" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ISFJ -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'isfj_detail' %}?mbti=ISFJ">
+                <img src="{% static 'img/ISFJ.png' %}" alt="ISFJ" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- INFJ -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'infj_detail' %}?mbti=INFJ">
+                <img src="{% static 'img/INFJ.png' %}" alt="INFJ" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- INTJ -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'intj_detail' %}?mbti=INTJ">
+                <img src="{% static 'img/INTJ.png' %}" alt="INTJ" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ISTP -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'istp_detail' %}?mbti=ISTP">
+                <img src="{% static 'img/ISTP.png' %}" alt="ISTP" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ISFP -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'isfp_detail' %}?mbti=ISFP">
+                <img src="{% static 'img/ISFP.png' %}" alt="ISFP" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- INFP -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'infp_detail' %}?mbti=INFP">
+                <img src="{% static 'img/INFP.png' %}" alt="INFP" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- INTP -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'intp_detail' %}?mbti=INTP">
+                <img src="{% static 'img/INTP.png' %}" alt="INTP" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ESTP -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'estp_detail' %}?mbti=ESTP">
+                <img src="{% static 'img/ESTP.png' %}" alt="ESTP" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ESFP -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'esfp_detail' %}?mbti=ESFP">
+                <img src="{% static 'img/ESFP.png' %}" alt="ESFP" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ENFP -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'enfp_detail' %}?mbti=ENFP">
+                <img src="{% static 'img/ENFP.png' %}" alt="ENFP" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ENTP -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'entp_detail' %}?mbti=ENTP">
+                <img src="{% static 'img/ENTP.png' %}" alt="ENTP" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ESTJ -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'estj_detail' %}?mbti=ESTJ">
+                <img src="{% static 'img/ESTJ.png' %}" alt="ESTJ" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ESFJ -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'esfj_detail' %}?mbti=ESFJ">
+                <img src="{% static 'img/ESFJ.png' %}" alt="ESFJ" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ENFJ -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'enfj_detail' %}?mbti=ENFJ">
+                <img src="{% static 'img/ENFJ.png' %}" alt="ENFJ" class="img-fluid my-3"> 
+            </a>
+        </div>
+
+        <!-- ENTJ -->
+        <div class="col-3 row-3 mbti-img">
+            <a href="{% url 'entj_detail' %}?mbti=ENTJ">
+                <img src="{% static 'img/ENTJ.png' %}" alt="ENTJ" class="img-fluid my-3"> 
+            </a>
+        </div>
+    </div>
+    
+<!-- 유의사항 -->
+    <div class="infomation">
+        <div class="info">
+            <p> 유의사항 </p>
+        </div>
+        <div class="info_bg">
+            <div class="info_font">
+                <p> 본 서비스 콘텐츠는 HD현대오일뱅크가 자체 개발하여 제공하고 있어요.</p>
+                <p> 본 서비스에서 제공되는 운세에 대해서는 결과를 보증하거나 책임지지 않아요.</p>
+                <p> 푸시 알림 수신에 동의하신 고객께 푸시 발송됩니다.</p>
+                <p> 본 서비스는 회사의 사정 등에 따라 사전 안내 없이 변경되거나 종료될 수 있어요.</p>
+            </div>  
+        </div>
+    </div>
+
+</body>
+</html>
